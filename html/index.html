@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VD Scoreboard - Ramadan Special</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+    <!-- HIDDEN BY DEFAULT WITH INLINE STYLE -->
+    <div class="scoreboard-overlay" id="scoreboard" style="display: none;">
+        <div class="scoreboard-container ramadan-theme">
+            <!-- DECORATIVE LANTERNS -->
+            <div class="lantern-left">
+                <i class="fas fa-lantern"></i>
+                <i class="fas fa-lantern"></i>
+            </div>
+            <div class="lantern-right">
+                <i class="fas fa-lantern"></i>
+                <i class="fas fa-lantern"></i>
+            </div>
+            
+            <!-- COMPACT HEADER WITH RAMADAN ELEMENTS -->
+            <div class="scoreboard-header">
+                <div class="crescent-decoration">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-moon"></i>
+                    <i class="fas fa-star"></i>
+                </div>
+                <div class="scoreboard-title">
+                    <i class="fas fa-mosque"></i>
+                    <span>TunisianUnique RP 2.0 - Illegal Activities</span>
+                </div>
+                <div class="scoreboard-actions">
+                    <button class="scoreboard-settings" id="settingsBtn" title="Settings">
+                        <i class="fas fa-cog"></i>
+                    </button>
+                    <button class="scoreboard-close" id="closeBtn">
+                        <i class="fas fa-times"></i>
+                    </button>
+                </div>
+            </div>
+            
+            <!-- COMPACT STATS ROW WITH ISLAMIC PATTERN -->
+            <div class="stats-decoration">
+                <div class="pattern-top"></div>
+            </div>
+            <div class="scoreboard-stats">
+                <div class="stat-card">
+                    <div class="stat-icon police">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <div class="stat-info">
+                        <div class="stat-label">Police</div>
+                        <div class="stat-value" id="police-count">0</div>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon ambulance">
+                        <i class="fas fa-ambulance"></i>
+                    </div>
+                    <div class="stat-info">
+                        <div class="stat-label">EMS</div>
+                        <div class="stat-value" id="ambulance-count">0</div>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon mechanic">
+                        <i class="fas fa-wrench"></i>
+                    </div>
+                    <div class="stat-info">
+                        <div class="stat-label">Mechanic</div>
+                        <div class="stat-value" id="mechanic-count">0</div>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon bennys">
+                        <i class="fas fa-car"></i>
+                    </div>
+                    <div class="stat-info">
+                        <div class="stat-label">Bennys</div>
+                        <div class="stat-value" id="bennys-count">0</div>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon biker">
+                        <i class="fas fa-motorcycle"></i>
+                    </div>
+                    <div class="stat-info">
+                        <div class="stat-label">biker</div>
+                        <div class="stat-value" id="biker-count">0</div>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon pizzathis">
+                        <i class="fas fa-utensils"></i>
+                    </div>
+                    <div class="stat-info">
+                        <div class="stat-label">Mirror Restaurant</div>
+                        <div class="stat-value" id="pizzathis-count">0</div>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon cardealer">
+                        <i class="fas fa-warehouse"></i>
+                    </div>
+                    <div class="stat-info">
+                        <div class="stat-label">Cardealer</div>
+                        <div class="stat-value" id="cardealer-count">0</div>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon beanmachine">
+                        <i class="fas fa-mug-hot"></i>
+                    </div>
+                    <div class="stat-info">
+                        <div class="stat-label">AquaBar</div>
+                        <div class="stat-value" id="beanmachine-count">0</div>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon total">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <div class="stat-info">
+                        <div class="stat-label">Online</div>
+                        <div class="stat-value" id="total-count">0</div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- ACTIVITIES CONTENT WITH RAMADAN THEME -->
+            <div class="scoreboard-content">
+                <div class="ramadan-message">
+                    <i class="fas fa-hands"></i>
+                    <span>Ramadan Kareem</span>
+                    <i class="fas fa-hands"></i>
+                </div>
+                <div class="activities-header">
+                    <h3><i class="fas fa-moon"></i> Illigal Activities</h3>
+                    <div class="activities-count" id="activities-count">10 Activities</div>
+                </div>
+                
+                <div class="activities-list" id="activities-list">
+                    <!-- Activities will be populated by JS -->
+                    <div class="empty-state">
+                        <i class="fas fa-mosque"></i>
+                        <p>No activities available</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- RAMADAN FOOTER DECORATION -->
+            <div class="ramadan-footer">
+                <div class="star-decoration">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                </div>
+                <p>رمضان كريم</p>
+                <div class="star-decoration">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                </div>
+            </div>
+        </div>
+        
+        <!-- SETTINGS MENU WITH RAMADAN THEME -->
+        <div class="settings-overlay" id="settingsMenu" style="display: none;">
+            <div class="settings-container ramadan-theme">
+                <div class="settings-header">
+                    <h3><i class="fas fa-cog"></i> Settings</h3>
+                    <button class="settings-close" id="closeSettingsBtn">
+                        <i class="fas fa-times"></i>
+                    </button>
+                </div>
+                <div class="settings-content">
+                    <div class="settings-section">
+                    </div>
+                    <div class="settings-section">
+                        <h4><i class="fas fa-moon"></i> UI Size</h4>
+                        <div class="size-control">
+                            <input type="range" id="size-slider" min="80" max="120" value="100">
+                            <span id="size-value">100%</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="ramadan-settings-footer">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-moon"></i>
+                    <i class="fas fa-star"></i>
+                </div>
+            </div>
+        </div>
+    </div>    
+    <script src="js/script.js"></script>
+</body>
+</html>
